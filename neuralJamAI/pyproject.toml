@@ -1,0 +1,11 @@
+[project]
+name = "neuraljamai"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "fastapi>=0.115.7",
+    "langchain>=0.3.15",
+    "langchain-mistralai>=0.2.4",
+]
