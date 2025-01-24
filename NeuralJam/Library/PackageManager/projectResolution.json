@@ -8,6 +8,14 @@
     "/Users/tomg/Desktop/hackathon2/neuraljam/NeuralJam/Packages/packages-lock.json"
   ],
   "outputs": {
+    "com.unity.2d.sprite@1.0.0": {
+      "name": "com.unity.2d.sprite",
+      "resolvedPath": "/Users/tomg/Desktop/hackathon2/neuraljam/NeuralJam/Library/PackageCache/com.unity.2d.sprite",
+      "fingerprint": "0e70656ef5df5c7161c8cfc6f24ab0dde0dc637e",
+      "editorCompatibility": "2019.2.0a1",
+      "version": "1.0.0",
+      "source": "builtin"
+    },
     "com.unity.collab-proxy@2.6.0": {
       "name": "com.unity.collab-proxy",
       "resolvedPath": "/Users/tomg/Desktop/hackathon2/neuraljam/NeuralJam/Library/PackageCache/com.unity.collab-proxy",
