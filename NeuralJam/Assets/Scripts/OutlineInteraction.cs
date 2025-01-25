@@ -5,7 +5,7 @@ public class OutlineInteraction : MonoBehaviour
     private Outline outline;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected virtual void Start()
     {
         outline = GetComponent<Outline>();
     }

@@ -55,6 +55,8 @@ public class CameraController : MonoBehaviour
         if (panDirection != Vector3.zero)
         {
             movingTarget += panDirection * panSpeed * Time.deltaTime;
+            Vector2 limits = GameManager.Instance.GetCameraPanZMinMax();
+            movingTarget.z = Mathf.Clamp(movingTarget.z, limits.x, limits.y);
         }
     }
 }

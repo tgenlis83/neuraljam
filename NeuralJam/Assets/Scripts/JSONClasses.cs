@@ -24,4 +24,6 @@ public class Person
     public float rotation; // Use array for JSON array mapping
     public string character;
     public string model_type;
+
+    public string[] items;
 }

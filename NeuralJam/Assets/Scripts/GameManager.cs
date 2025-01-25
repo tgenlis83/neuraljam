@@ -44,16 +44,42 @@ public class GameManager : MonoBehaviour
         {
             ghostController.SetTarget(null);
         }
+    }
 
-        if (Input.GetKeyDown(KeyCode.N))
+    bool isParallelUniverse = false;
+    Passenger lastFocusingPassenger;
+    public void ParallelUniverseToggle(Passenger focusingPassenger)
+    {
+        isParallelUniverse = !isParallelUniverse;
+        if (isParallelUniverse)
         {
-            NextWagon();
+            train.wagons[currentWagon].DisablePassengersExcept(focusingPassenger);
+            train.wagons[currentWagon].EnablePassengerItems(focusingPassenger);
+        }
+        else
+        {
+            train.wagons[currentWagon].EnableAllPassengers();
+            train.wagons[currentWagon].DisableAllItems();
+        }
+        ParallelUniverseHandler.Instance.ToggleParallelUniverse(focusingPassenger);
+        lastFocusingPassenger = focusingPassenger;
+        if (isParallelUniverse)
+        {
+            PhoneHandler.Instance.Show(focusingPassenger);
+        }
+        else
+        {
+            PhoneHandler.Instance.Hide();
         }
     }
 
-
     public void NextWagon()
     {
+        Debug.Log("NextWagon");
+        if (isParallelUniverse)
+        {
+            ParallelUniverseToggle(lastFocusingPassenger);
+        }
         currentWagon++;
         if (currentWagon >= train.wagons.Count)
         {
@@ -67,11 +93,13 @@ public class GameManager : MonoBehaviour
     public void GameWin()
     {
         timerText.text = "You Win!";
+        WinScreen.Instance.Show();
     }
 
     public void GameLost()
     {
         timerText.text = "You Lose!";
+        LoseScreen.Instance.Show();
     }
 
     public string jsonContent;
@@ -90,14 +118,31 @@ public class GameManager : MonoBehaviour
             foreach(var person in wagonData.people)
             {
                 Vector3 worldPosition = NormalizedWagonSpaceToWorldSpace(w.transform.position, new Vector2(person.position[0], person.position[1]));
-                w.CreatePassenger(worldPosition, Quaternion.Euler(0, person.rotation, 0));
+                w.CreatePassenger(person.uid, worldPosition, Quaternion.Euler(0, person.rotation, 0));
+
+                // for each item spawn it randomly in the wagon
+                if (person.items != null)
+                {
+                    foreach (var item in person.items)
+                    {
+                        Vector3 itemPosition = NormalizedWagonSpaceToWorldSpace(w.transform.position, new Vector2(Random.Range(0.15f, 0.85f), Random.Range(0.15f, 0.85f)));
+                        itemPosition.y += 0.5f;
+                        w.CreateItem(person.uid, itemPosition, Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)), item);
+                    }
+                }
             }
         }
 
         currentWagon = -1;
         NextWagon();
+
+        train.wagons[currentWagon].EnableAllPassengers();
+        train.wagons[currentWagon].DisableAllItems();
     }
 
+    float wagonWidth = 22.5f;
+    float wagonHeight = 6f;
+    float floorHeight = 2.01f; // 1 + eps
     Vector3 NormalizedWagonSpaceToWorldSpace(Vector3 wagonWorldSpace, Vector2 position)
     {
         // the position is the normalized position of the person in the wagon on the 2d floor
@@ -107,14 +152,20 @@ public class GameManager : MonoBehaviour
         // 1,1 is the top right corner of the wagon (from the perspective of the camera)
         // wagonWorldSpace is the center of the wagon, from the wheels
 
-        float wagonWidth = 22.5f;
-        float wagonHeight = 6f;
-        float floorHeight = 2.01f; // 1 + eps
-
         float worldX = -wagonWorldSpace.z + (wagonWidth / 2) - position.x * wagonWidth;
         float worldY = wagonWorldSpace.y + floorHeight; // Assuming the person is on the first floor
         float worldZ = wagonWorldSpace.x + (wagonHeight / 2) - position.y * wagonHeight;
 
         return new Vector3(worldZ, worldY, -worldX);
+    }
+
+    // get min and max z position for the camera pan
+    public Vector2 GetCameraPanZMinMax()
+    {
+        float wagonZ = train.wagons[currentWagon].start.transform.position.z;
+        float margin = 2.5f;
+        float minZ = wagonZ + margin;
+        float maxZ = wagonZ + wagonWidth - margin;
+        return new Vector2(minZ, maxZ);
     }
 }

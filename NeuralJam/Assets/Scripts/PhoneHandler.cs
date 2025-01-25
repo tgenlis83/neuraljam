@@ -47,8 +47,10 @@ public class PhoneHandler : MonoBehaviour
     }
 
     private CanvasGroup canvasGroup;
-    public void Show()
+    public void Show(Passenger passenger)
     {
+        // retrieve conversation and initialize the conversation handler
+
         canvasGroup.alpha = 1;
         canvasGroup.blocksRaycasts = true;
         canvasGroup.interactable = true;

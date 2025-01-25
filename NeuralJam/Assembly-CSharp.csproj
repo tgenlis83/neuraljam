@@ -65,16 +65,19 @@
     <Analyzer Include="/Applications/Unity/Hub/Editor/6000.0.27f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets/Scripts/WinScreen.cs" />
     <Compile Include="Assets/Scripts/JSONClasses.cs" />
     <Compile Include="Assets/Scripts/APIHelper.cs" />
     <Compile Include="Assets/Scripts/Train.cs" />
     <Compile Include="Assets/Scripts/PasswordHandler.cs" />
+    <Compile Include="Assets/Scripts/PassengerInteraction.cs" />
     <Compile Include="Assets/Scripts/ConversationHandler.cs" />
     <Compile Include="Assets/Scripts/Passenger.cs" />
     <Compile Include="Assets/Scripts/PassengerSelector.cs" />
     <Compile Include="Assets/Scripts/NotesHandler.cs" />
     <Compile Include="Assets/QuickOutline/Scripts/Outline.cs" />
     <Compile Include="Assets/Scripts/PhoneHandler.cs" />
+    <Compile Include="Assets/Scripts/LoseScreen.cs" />
     <Compile Include="Assets/Scripts/GhostController.cs" />
     <Compile Include="Assets/Scripts/WagonStart.cs" />
     <Compile Include="Assets/Scripts/HoverCursorHandler.cs" />
@@ -83,7 +86,10 @@
     <Compile Include="Assets/Scripts/GameManager.cs" />
     <Compile Include="Assets/Scripts/Wagon.cs" />
     <Compile Include="Assets/Scripts/KeepActive.cs" />
+    <Compile Include="Assets/Scripts/SceneLoader.cs" />
+    <Compile Include="Assets/Scripts/ParallelUniverseHandler.cs" />
     <Compile Include="Assets/Scripts/DoorInteraction.cs" />
+    <Compile Include="Assets/Scripts/SpotLightCursor.cs" />
     <Compile Include="Assets/Scripts/CameraController.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -94,7 +100,6 @@
     <None Include="Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
     <None Include="Assets/QuickOutline/Resources/Shaders/OutlineMask.shader" />
-    <None Include="Assets/Resources/sample_json.txt" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/SDFFunctions.hlsl" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
