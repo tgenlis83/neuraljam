@@ -5,21 +5,22 @@ public class Wagon : MonoBehaviour
 {
     public GameObject passengerPrefab;
     public GameObject[] itemPrefabs;
-    public List<GameObject> passengers = new List<GameObject>();
+    public Dictionary<string, GameObject> passengers = new Dictionary<string, GameObject>();
     public Dictionary<string, List<GameObject>> items = new Dictionary<string, List<GameObject>>();
     public Transform passengerParent;
     public WagonStart start;
     public string passcode;
 
-    public void CreatePassenger(string uid, Vector3 position, Quaternion rotation)
+    public void CreatePassenger(string uid, string username, Vector3 position, Quaternion rotation)
     {
         GameObject passenger = Instantiate(passengerPrefab, position, rotation);
         passenger.transform.parent = passengerParent;
 
         Passenger p = passenger.GetComponent<Passenger>();
         p.uid = uid;
+        p.username = username;
 
-        passengers.Add(passenger);
+        passengers.Add(uid, passenger);
     }
 
     public void CreateItem(string passengerUID, Vector3 position, Quaternion rotation, string itemName)
@@ -35,9 +36,12 @@ public class Wagon : MonoBehaviour
 
     public void DisablePassengersExcept(Passenger focusingPassenger)
     {
-        foreach (var passenger in passengers)
+        foreach (var passenger in passengers.Values)
         {
-            passenger.gameObject.SetActive(false);
+            if (passenger != focusingPassenger.gameObject)
+            {
+                passenger.gameObject.SetActive(false);
+            }
         }
         focusingPassenger.gameObject.SetActive(true);
     }
@@ -58,9 +62,9 @@ public class Wagon : MonoBehaviour
 
     public void EnableAllPassengers()
     {
-        foreach (var passenger in passengers)
+        foreach (var passenger in passengers.Values)
         {
-            passenger.gameObject.SetActive(true);
+            passenger.SetActive(true);
         }
     }
 

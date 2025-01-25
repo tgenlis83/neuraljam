@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uid: 
+  username: 
   passengerLight: {fileID: 8882552730932539849}
   passengerSpotlight: {fileID: 5526319574136306788}
 --- !u!114 &5236868987769072259
@@ -68,7 +69,7 @@ MonoBehaviour:
   outlineMode: 3
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 3.64
-  precomputeOutline: 1
+  precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
 --- !u!136 &9052304900611884457

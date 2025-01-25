@@ -9,6 +9,8 @@ public class PassengerInteraction : OutlineInteraction
     {
         base.Start();
         passenger = GetComponent<Passenger>();
+        // in the string, replace {name} with the passenger's name
+        interactionName = interactionName.Replace("{name}", passenger.username);
         firstInteractionText = interactionName;
     }
 
@@ -20,7 +22,7 @@ public class PassengerInteraction : OutlineInteraction
         inParallelUniverse = !inParallelUniverse;
         if (inParallelUniverse)
         {
-            interactionName = "Leave {name}'s mind";
+            interactionName = "Leave {name}'s mind".Replace("{name}", passenger.username);
         }
         else
         {

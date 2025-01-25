@@ -28,24 +28,20 @@ public class ConversationHandler : MonoBehaviour
         scrollbar.value = 0;
     }
 
+    public void ClearTexts()
+    {
+        foreach (Transform child in textParent)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+
     private void ForceUpdateContentSizeFitter(GameObject textObject)
     {
         ContentSizeFitter[] contentSizeFitters = textObject.GetComponentsInChildren<ContentSizeFitter>();
         foreach (var fitter in contentSizeFitters)
         {
             LayoutRebuilder.ForceRebuildLayoutImmediate(fitter.GetComponent<RectTransform>());
-        }
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            ReceiveText("Hi!");
-        }
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            SendText("Hello!");
         }
     }
 }

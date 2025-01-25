@@ -46,10 +46,9 @@ public class PasswordHandler : MonoBehaviour
         int maxDistance = Mathf.Max(password.Length, inputField.text.Length, 1);
         int distance = levensteinDistance(password.ToLower(), inputField.text.ToLower());
         int value = Mathf.FloorToInt((maxDistance - distance) / (float)maxDistance * 8);
-        Debug.Log("Distance: " + distance + " Value: " + value + " Max: " + maxDistance);
         proximitySlider.value = value;
-        noImage.sprite = value < 7 ? noSprite : neutralSprite;
-        noCross.SetActive(value < 7);
+        noImage.sprite = value <= 7 ? noSprite : neutralSprite;
+        noCross.SetActive(value <= 7);
         yesImage.sprite = value >= 8 ? yesSprite : neutralSprite;
         noCheckmark.SetActive(value >= 8);
         if (value >= 8)

@@ -86,10 +86,11 @@
     <Compile Include="Assets/Scripts/GameManager.cs" />
     <Compile Include="Assets/Scripts/Wagon.cs" />
     <Compile Include="Assets/Scripts/KeepActive.cs" />
+    <Compile Include="Assets/ProgressBarHandler.cs" />
     <Compile Include="Assets/Scripts/SceneLoader.cs" />
     <Compile Include="Assets/Scripts/ParallelUniverseHandler.cs" />
-    <Compile Include="Assets/Scripts/DoorInteraction.cs" />
     <Compile Include="Assets/Scripts/SpotLightCursor.cs" />
+    <Compile Include="Assets/Scripts/DoorInteraction.cs" />
     <Compile Include="Assets/Scripts/CameraController.cs" />
   </ItemGroup>
   <ItemGroup>
