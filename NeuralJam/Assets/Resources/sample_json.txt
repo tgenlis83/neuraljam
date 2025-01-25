@@ -1,0 +1,96 @@
+{
+    "wagons": [
+      {
+        "id": 0,
+        "passcode": "gamejam",
+        "people": [
+          {
+            "uid": "wagon-0-player-1",
+            "position": [
+              0,
+              0
+            ],
+            "rotation": 225,
+            "character": "main",
+            "model_type": "regular"
+          },
+          {
+            "uid": "wagon-0-player-2",
+            "position": [
+              1,
+              0
+            ],
+            "rotation": 135,
+            "character": "mob",
+            "model_type": "regular"
+          },
+          {
+            "uid": "wagon-0-player-3",
+            "position": [
+              0,
+              1
+            ],
+            "rotation": -45,
+            "character": "citizen",
+            "model_type": "regular"
+          },
+          {
+            "uid": "wagon-0-player-3",
+            "position": [
+              1,
+              1
+            ],
+            "rotation": 45,
+            "character": "citizen",
+            "model_type": "regular"
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "passcode": "gamejam676",
+        "people": [
+          {
+            "uid": "wagon-0-player-1",
+            "position": [
+              0,
+              0
+            ],
+            "rotation": 0,
+            "character": "main",
+            "model_type": "regular"
+          },
+          {
+            "uid": "wagon-0-player-2",
+            "position": [
+              1,
+              0
+            ],
+            "rotation": 0,
+            "character": "mob",
+            "model_type": "regular"
+          },
+          {
+            "uid": "wagon-0-player-3",
+            "position": [
+              0,
+              1
+            ],
+            "rotation": 0,
+            "character": "citizen",
+            "model_type": "regular"
+          },
+          {
+            "uid": "wagon-0-player-3",
+            "position": [
+              1,
+              1
+            ],
+            "rotation": 0,
+            "character": "citizen",
+            "model_type": "regular"
+          }
+        ]
+      }
+    ]
+  }
