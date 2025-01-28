@@ -1,16 +1,3 @@
-fileFormatVersion: 2
-guid: f23712c79adc910408e872b127e825cf
-timeCreated: 1522615825
-licenseType: Store
-DefaultImporter:
-  externalObjects: {}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 115488
-  packageName: Quick Outline
-  packageVersion: 1.1
-  assetPath: Assets/QuickOutline/Samples/Scenes/QuickOutline.unity
-  uploadId: 485303
+version https://git-lfs.github.com/spec/v1
+oid sha256:b89d4167178077c543db8e5958a772c013f67ea1a6f152e26e0a77c30758f4c6
+size 391

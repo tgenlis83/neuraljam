@@ -1,29 +1,3 @@
-using System;
-using System.Collections.Generic;
-using UnityEngine;
-
-[Serializable]
-public class TrainData
-{
-    public List<WagonData> wagons;
-}
-
-[Serializable]
-public class WagonData
-{
-    public int id;
-    public string passcode;
-    public List<Person> people;
-}
-
-[Serializable]
-public class Person
-{
-    public string uid;
-    public float[] position;  // Use array for JSON array mapping
-    public float rotation; // Use array for JSON array mapping
-    public string character;
-    public string model_type;
-
-    public string[] items;
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:b27033848181ec31fcada529e286c208a63cf3217d8bea7947fa3344cbfc67cb
+size 546

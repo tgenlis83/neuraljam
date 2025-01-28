@@ -1,16 +1,3 @@
-fileFormatVersion: 2
-guid: 5933bfd39d7a5b843a0ed821f85bca19
-timeCreated: 1522619008
-licenseType: Store
-TextScriptImporter:
-  externalObjects: {}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 115488
-  packageName: Quick Outline
-  packageVersion: 1.1
-  assetPath: Assets/QuickOutline/Readme.txt
-  uploadId: 485303
+version https://git-lfs.github.com/spec/v1
+oid sha256:874d7e8e8ad2d3e849e1184607ddbe2d0f0f5bbe55112a69a300b02b1efa2662
+size 371
